@@ -105,7 +105,7 @@ function checkAnswer(selectedIndex) {
     }
 
     for (var i = 0; i < optionButtons.length; i++) {
-        optionButtons[i].disabled = false
+        optionButtons[i].disabled = true;
     }
 
     nextBtn.style.display = "inline-block";
