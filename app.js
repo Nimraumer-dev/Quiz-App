@@ -1,7 +1,7 @@
 // Quiz questions (Tech based)
 var questions = [
     {
-        question: "What does HTML stand for?",
+        question: "Q1: What does HTML stand for?",
         options: [
             "Hyper Text Markup Language",
             "High Text Machine Language",
@@ -11,22 +11,22 @@ var questions = [
         answer: 0
     },
     {
-        question: "Which language is used for styling web pages?",
+        question: "Q2: Which language is used for styling web pages?",
         options: ["HTML", "JQuery", "CSS", "XML"],
         answer: 2
     },
     {
-        question: "Which is not a JavaScript data type?",
+        question: "Q3: Which is not a JavaScript data type?",
         options: ["String", "Boolean", "Float", "Undefined"],
         answer: 2
     },
     {
-        question: "Which symbol is used for comments in JavaScript?",
+        question: "Q4: Which symbol is used for comments in JavaScript?",
         options: ["!-- -->", "//", "#", "**"],
         answer: 1
     },
     {
-        question: "What does CSS stand for?",
+        question: "Q5: What does CSS stand for?",
         options: [
             "Creative Style Sheet",
             "Colorful Style Sheet",
@@ -36,22 +36,22 @@ var questions = [
         answer: 2
     },
     {
-        question: "Which company developed JavaScript?",
+        question: "Q6: Which company developed JavaScript?",
         options: ["Microsoft", "Netscape", "Google", "Apple"],
         answer: 1
     },
     {
-        question: "Which HTML tag is used for JavaScript?",
+        question: "Q7: Which HTML tag is used for JavaScript?",
         options: ["js", "javascript", "script", "code"],
         answer: 2
     },
     {
-        question: "Which operator checks value and type?",
+        question: "Q8: Which operator checks value and type?",
         options: ["==", "=", "===", "!="],
         answer: 2
     },
     {
-        question: "Which method converts JSON to object?",
+        question: "Q9: Which method converts JSON to object?",
         options: [
             "JSON.parse()",
             "JSON.stringify()",
@@ -61,7 +61,7 @@ var questions = [
         answer: 0
     },
     {
-        question: "Which keyword is used to declare variable in ES5?",
+        question: "Q10: Which keyword is used to declare variable in ES5?",
         options: ["let", "const", "var", "define"],
         answer: 2
     }
