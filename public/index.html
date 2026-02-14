@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tech Quiz</title>
+</head>
+
+
+<body>
+    <!-- User Profile / Login Section -->
+    <div class="user-control">
+        <div id="authContent">
+            <button id="loginIconBtn" class="icon-btn"><i class="fas fa-user-circle"></i> Login</button>
+            <div id="userInfo" class="hidden">
+                <span id="userDisplayName">User</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <form id="loginForm" class="auth-form">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPass" placeholder="Password" required>
+                <button type="submit" id="loginSubmit">Login</button>
+                <p>Don't have an account? <a href="#" id="toSignup">Sign up here</a></p>
+            </form>
+            <form id="signupForm" class="auth-form hidden">
+                <h2>Sign Up</h2>
+                <input type="text" id="signupName" placeholder="Full Name" required>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPass" placeholder="Password" required>
+                <button type="submit" id="signupSubmit">Create Account</button>
+                <p>Already have an account? <a href="#" id="toLogin">Login here</a></p>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Tech Quiz</h1>
+        <div id="quiz">
+            <h3 id="question">Question text</h3>
+
+            <div class="options">
+                <button class="option" id="opt0"></button>
+                <button class="option" id="opt1"></button>
+                <button class="option" id="opt2"></button>
+                <button class="option" id="opt3"></button>
+            </div>
+            <button id="nextBtn">Next</button>
+        </div>
+
+        <div id="result" class="hidden">
+            <h2>Your Score</h2>
+            <p id="finalScore"></p>
+            <button id="restartBtn">Restart Quiz</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK Compat (ES5 Friendly) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

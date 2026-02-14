@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #9333ea;
+    --primary-hover: #7e22ce;
+    --secondary: #e879f9;
+    --danger: #ef4444;
+    --success: #22c55e;
+    --error: #f43f5e;
+    --bg-dark: #0a0118;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(147, 51, 234, 0.2);
+    --text-main: #f3e8ff;
+    --text-muted: #a78bfa;
+    --card-bg: #13072e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top left, #1e1b4b, #0a0118);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Background Decorative Elements */
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.15;
+}
+
+body::before {
+    background: var(--primary);
+    top: -100px;
+    left: -100px;
+}
+
+body::after {
+    background: var(--secondary);
+    bottom: -100px;
+    right: -100px;
+}
+
+.quiz-container {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #c084fc, #e879f9);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#question {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option {
+    padding: 16px 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: var(--glass);
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 1rem;
+    text-align: left;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.option:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+    border-color: var(--primary);
+}
+
+.option.correct {
+    background: rgba(34, 197, 94, 0.2);
+    border-color: var(--success);
+    color: #4ade80;
+}
+
+.option.wrong {
+    background: rgba(244, 63, 94, 0.2);
+    border-color: var(--error);
+    color: #fb7185;
+}
+
+.option:disabled {
+    cursor: default;
+    opacity: 0.7;
+}
+
+#nextBtn,
+#restartBtn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#nextBtn:hover,
+#restartBtn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* User Profile Section */
+.user-control {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 100;
+}
+
+.icon-btn {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.icon-btn i {
+    font-size: 1.2rem;
+}
+
+#userInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 8px 18px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+}
+
+.logout-btn {
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Modals Modernized */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 1, 24, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.auth-form h2 {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.auth-form input:focus {
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.auth-form p {
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.auth-form a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .quiz-container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .user-control {
+        top: 15px;
+        right: 15px;
+    }
+
+    .icon-btn span {
+        display: none;
+    }
+}
