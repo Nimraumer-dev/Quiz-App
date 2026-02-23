@@ -100,6 +100,7 @@ var quizBox = document.getElementById("quiz");
 var resultBox = document.getElementById("result");
 var finalScore = document.getElementById("finalScore");
 var restartBtn = document.getElementById("restartBtn");
+var quizContainer = document.querySelector(".quiz-container");
 
 // Auth Elements
 var authModal = document.getElementById("authModal");
@@ -217,10 +218,18 @@ auth.onAuthStateChanged(function (user) {
         userInfo.classList.remove("hidden");
         userDisplayName.innerText = user.displayName || user.email.split('@')[0];
         authModal.classList.add("hidden");
+
+        // UI Access Control
+        quizContainer.classList.remove("hidden");
+        loadQuestion();
     } else {
         currentUser = null;
         loginIconBtn.classList.remove("hidden");
         userInfo.classList.add("hidden");
+
+        // UI Access Control
+        quizContainer.classList.add("hidden");
+        authModal.classList.remove("hidden");
     }
 });
 
@@ -292,5 +301,4 @@ logoutBtn.onclick = function () {
     });
 };
 
-// Start Quiz
-loadQuestion();
+// Removed: Start Quiz (Logic moved to onAuthStateChanged)
